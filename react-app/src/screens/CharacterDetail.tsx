@@ -6,15 +6,18 @@ import { Image } from 'react-bootstrap';
 import BackArrow from '../assets/backArrow.svg';
 import useWindowDimensions from '../components/GetWindowSize';
 import BirthDayLogo from '../assets/bday.svg';
+import moment from 'moment';
 
 
-export const CharacterDetail = (props:any) => {
-  const routes:any = useLocation();
+export const CharacterDetail = (props: any) => {
+
+
+  const routes: any = useLocation();
   const navigate = useNavigate();
   const params = routes?.state?.data;
   const { width, height } = useWindowDimensions();
   const occupation = routes?.state?.data?.occupation;
-
+  const birthday: string = moment(params?.birthday).format("Do-MMM-YY");;
 
 
 
@@ -136,12 +139,12 @@ export const CharacterDetail = (props:any) => {
               />
               <label
                 style={{
-                  fontSize: '24 px',
+                  fontSize: '24px',
                   fontWeight: '200', alignSelf: 'center',
                   color: '#fff', marginLeft: 20
                 }}
               >
-                {params?.birthday}
+                {birthday}
               </label>
             </div>
           </div>
