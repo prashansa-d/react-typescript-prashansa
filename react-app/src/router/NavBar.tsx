@@ -1,7 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
 import { Image, Navbar } from "react-bootstrap";
-// import { NavLink } from "react-router-dom";
 import '../App.css';
 import HeartLogo from '../assets/HEART_FILLED.svg';
 import ReactLogo from '../assets/React-icon.svg';
@@ -11,46 +10,53 @@ import '../styles/Search.css';
 
 
 
-export const NavBar = (props:any) => {
+export const NavBar = (props: any) => {
 
-  // const navLinkStyles = ({ isActive }) => {
-  //   return {
-  //     fontWeight: isActive ? 'bold' : 'normal',
-  //     textDecoration: isActive ? 'none' : 'underline',
-  //   }
-  // }
+
+  const textInput = {
+    color: '#fff',
+    backgroundColor: '#232323',
+    height: 50,
+    width: '20%',
+    borderRadius: 3,
+    marginRight: 25
+  };
+  const reactLogoImg = {
+    height: 50, width: 50
+  }
+  const mainView = {
+    height: 100, backgroundColor: '#000'
+  }
+  const titleText = {
+    color: '#fff'
+  }
+  const favImg = {
+    height: 25, width: 25, marginRight: 20
+  }
 
   return (
-    // <nav>
-    //   <NavLink style={navLinkStyles} to="/">Home</NavLink>
-    //   <NavLink style={navLinkStyles} to="/characterdetail">CharacterDetail</NavLink>
-    //   <NavLink style={navLinkStyles} to="/favourite">Favourite</NavLink>
-    // </nav>
-    <Navbar style={{ height: 100, backgroundColor: '#000' }}>
+    <Navbar style={mainView}>
       <>
         <Image
           src={ReactLogo}
-          style={{ height: 50, width: 50 }}
+          style={reactLogoImg}
         />
-        <Navbar.Brand href="/" style={{ color: '#fff' }}>{TITLE}</Navbar.Brand>
+        <Navbar.Brand href="/" style={titleText}>{TITLE}</Navbar.Brand>
       </>
       <Navbar.Toggle />
       <Navbar.Collapse className="justify-content-end">
         <>
-          {/* <form className="searchbar"> */}
           <input
             type="search"
-            placeholder="Search here"
-            style={{ color: '#000', marginRight: 25 }}
-            onChange={(text:any) => {              
+            style={textInput}
+            onChange={(text: any) => {
               props.onChangeText(text.target.value);
             }} />
 
-          {/* </form> */}
           <div style={{ cursor: 'pointer' }}>
             <Image
               src={HeartLogo}
-              style={{ height: 25, width: 25, marginRight: 20 }}
+              style={favImg}
             />
           </div>
         </>

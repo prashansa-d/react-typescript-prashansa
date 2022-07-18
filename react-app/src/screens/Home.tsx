@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Card, Image } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
 import '../App.css';
+import { CardComponent } from '../components/CardComponent';
 import { CHARACTER_LIST } from '../constants/URLConstants';
 import { NavBar } from '../router/NavBar';
-import HeartLogo from '../assets/HEART_FILLED.svg';
-import Heart from '../assets/HEART.svg';
-import { CardComponent } from '../components/CardComponent';
 
 export const Home = () => {
 
-  const navigate = useNavigate();
 
   const [characterList, setcharacterList] = useState<any>([])
 
@@ -39,15 +34,18 @@ export const Home = () => {
 
   }
 
+  const mainView = {
+    paddingLeft: '110px'
+  }
+
   return (
     <>
       <NavBar
-        onChangeText={(text:string) => {
-          console.log("asfsfd", text);
+        onChangeText={(text: string) => {
         }}
       />
 
-      <div className="df" style={{ paddingLeft: '110px' }}>
+      <div className="df" style={mainView}>
         {characterList.map((item: object, index: number) => {
           return (
             // <Card className="d" style={{ width: "15rem" }}>

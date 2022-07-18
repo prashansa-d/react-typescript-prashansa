@@ -1,12 +1,11 @@
-import React, { useState } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom';
-import { NavBar2 } from '../router/NavBar2';
-import '../App.css';
-import { Image } from 'react-bootstrap';
-import BackArrow from '../assets/backArrow.svg';
-import useWindowDimensions from '../components/GetWindowSize';
-import BirthDayLogo from '../assets/bday.svg';
 import moment from 'moment';
+import React from 'react';
+import { Image } from 'react-bootstrap';
+import { useLocation, useNavigate } from 'react-router-dom';
+import '../App.css';
+import BackArrow from '../assets/backArrow.svg';
+import BirthDayLogo from '../assets/bday.svg';
+import useWindowDimensions from '../components/GetWindowSize';
 
 
 export const CharacterDetail = (props: any) => {
@@ -20,7 +19,13 @@ export const CharacterDetail = (props: any) => {
   const birthday: string = moment(params?.birthday).format("Do-MMM-YY");;
 
 
-
+  const mainView = {
+    height: height
+  };
+  const middleImgView = { marginTop: '200px' };
+  const middleImg = {
+    width: '250px', height: '300px',
+  }
 
   return (
     <>
@@ -28,7 +33,7 @@ export const CharacterDetail = (props: any) => {
         <Image
           src={params?.img}
           className="col-5 col-md-5"
-          style={{ height: height }}
+          style={mainView}
         />
 
 
@@ -51,13 +56,11 @@ export const CharacterDetail = (props: any) => {
           {/* ----------------------------Front image and label view----------------------------  */}
           <div
             className="text-center align-self-center"
-            style={{ marginTop: '200px' }}>
+            style={middleImgView}>
 
             <Image
               src={params?.img}
-              style={{
-                width: '250px', height: '300px',
-              }}
+              style={middleImg}
               className="rounded"
             />
 
