@@ -1,16 +1,20 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
 import { Image, Navbar } from "react-bootstrap";
+import { useNavigate } from 'react-router-dom';
 import '../App.css';
 import HeartLogo from '../assets/HEART_FILLED.svg';
 import ReactLogo from '../assets/React-icon.svg';
 import { TITLE } from "../constants/String";
 import '../styles/Search.css';
+import BackArrow from '../assets/backArrow.svg';
 
 
 
 
 export const NavBar = (props: any) => {
+
+  const navigate = useNavigate();
 
 
   const textInput = {
@@ -36,6 +40,9 @@ export const NavBar = (props: any) => {
 
   return (
     <Navbar style={mainView}>
+
+
+     
       <>
         <Image
           src={ReactLogo}
@@ -53,7 +60,10 @@ export const NavBar = (props: any) => {
               props.onChangeText(text.target.value);
             }} />
 
-          <div style={{ cursor: 'pointer' }}>
+          <div style={{ cursor: 'pointer' }}
+            onClick={() => {
+              navigate('favourite')
+            }}>
             <Image
               src={HeartLogo}
               style={favImg}

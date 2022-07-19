@@ -10,7 +10,6 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-
         <Route path="characterdetail" element={<CharacterDetail />} />
         <Route path="favourite" element={<Favourite />} />
         <Route path="*" element={<NoPageFound />} />

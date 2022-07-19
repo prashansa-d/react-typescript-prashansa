@@ -1,51 +1,73 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
 import { Image, Navbar } from "react-bootstrap";
-// import { NavLink } from "react-router-dom";
 import '../App.css';
-import HeartLogo from '../assets/HEART_FILLED.svg';
-import ReactLogo from '../assets/React-icon.svg';
 import BackArrow from '../assets/backArrow.svg';
+import ReactLogo from '../assets/React-icon.svg';
+import useWindowDimensions from '../components/GetWindowSize';
 import { TITLE } from "../constants/String";
 import '../styles/Search.css';
 
 
 
 
-export const NavBar2 = () => {
+export const NavBar2 = (props: any) => {
 
-    // const navLinkStyles = ({ isActive }) => {
-    //   return {
-    //     fontWeight: isActive ? 'bold' : 'normal',
-    //     textDecoration: isActive ? 'none' : 'underline',
-    //   }
-    // }
+    const { width, height } = useWindowDimensions();
+
+
+    const textInput = {
+        color: '#fff',
+        backgroundColor: '#232323',
+        height: 50,
+        width: '20%',
+        borderRadius: 3,
+        marginRight: 25
+    };
+    const reactLogoImg = {
+        height: 50, width: 50
+    }
+    const mainView = {
+        height: 100, backgroundColor: '#000',
+    }
+    const titleText = {
+        color: '#fff'
+    }
+    const favImg = {
+        height: 25, width: 25, marginRight: 20
+    }
 
     return (
-        // <nav>
-        //   <NavLink style={navLinkStyles} to="/">Home</NavLink>
-        //   <NavLink style={navLinkStyles} to="/characterdetail">CharacterDetail</NavLink>
-        //   <NavLink style={navLinkStyles} to="/favourite">Favourite</NavLink>
-        // </nav>
-        <Navbar style={{  backgroundColor: 'transparent', top: 0 }}>
-            <>
-                <Image
-                    src={BackArrow}
-                    style={{ height: 50, width: 50 }}
-                />
-                <Navbar.Brand href="/" style={{ color: '#fff' }}>{TITLE}</Navbar.Brand>
-            </>
+        <Navbar className='d-flex' style={mainView}>
+            <div className="d-flex flex-row "
+                style={{ alignItems: 'center', width: width / 1.8, justifyContent: 'space-between' }}>
+
+                <div onClick={props.onClickBack}>
+                    <Image
+
+                        src={BackArrow}
+                        style={{ height: 15, width: 15, marginLeft: 60, cursor: 'pointer' }}
+                    />
+
+                </div>
+
+
+                <div className="d-flex flex-row "
+                    style={{ alignItems: 'center', justifyContent: 'center', }}
+                >
+                    <Image
+                        src={ReactLogo}
+                        style={reactLogoImg}
+                    />
+                    <Navbar.Brand href="/" style={titleText}>{TITLE}</Navbar.Brand>
+                </div>
+            </div>
             <Navbar.Toggle />
             <Navbar.Collapse className="justify-content-end">
                 <>
-                    {/* <form className="searchbar"> */}
-                    <input type="search" placeholder="Search here" style={{ color: '#fff', marginRight: 25 }} />
-
-                    {/* </form> */}
-                    <Image
-                        src={HeartLogo}
-                        style={{ height: 25, width: 25, marginRight: 20 }}
-                    />
+                    <label style={{ color: '#fff' }}>
+                        Favourites
+                    </label>
                 </>
             </Navbar.Collapse>
         </Navbar>

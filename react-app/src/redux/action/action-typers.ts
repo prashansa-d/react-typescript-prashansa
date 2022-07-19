@@ -1,0 +1,3 @@
+export const FAVOURITE_LIST = 'FAVOURITE_LIST';
+
+export const CHARACHTER_LIST = 'CHARACHTER_LIST';

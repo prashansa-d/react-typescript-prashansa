@@ -4,25 +4,30 @@ import '../App.css';
 import HeartLogo from '../assets/HEART_FILLED.svg';
 import Heart from '../assets/HEART.svg';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 
 
 
-export const CardComponent = (item: any, index: number, onClickFav: Function) => {
+export const CardComponent = (props: any) => {
 
-    var Item = item.item;
+    var Item = props.item;
 
     const navigate = useNavigate();
 
-    const [selectedItem, setSelectedItem] = useState(false);
+    const { favouriteList } = useSelector((state: any) => state.mainReducer);
 
-    const parentcall = () => {
-        setSelectedItem(!selectedItem);
-        onClickFav(item, index)
-    }
 
-    const mainView = { width: "500px" };
-    const clickableView = { width: '100%', cursor: 'pointer' };
+    const isSelected = favouriteList.findIndex((i: Number) => i === Item.char_id) !== -1;
+
+
+    const mainView = {
+        width: "500px"
+    };
+    const clickableView = {
+        width: '100%',
+        cursor: 'pointer'
+    };
     const nameView = {
         width: '100%'
     };
@@ -31,7 +36,7 @@ export const CardComponent = (item: any, index: number, onClickFav: Function) =>
     };
     const heartLogo = {
         cursor: 'pointer'
-    }
+    };
 
     return (
         <div className="col-md-4 d-flex justify-content-space-between my-3 mx-3"
@@ -62,11 +67,11 @@ export const CardComponent = (item: any, index: number, onClickFav: Function) =>
                     <div className='mt-3 ml-5'
                         onClick={(e) => {
                             e.preventDefault();
-                            parentcall();
+                            props.onClickFav(Item, props.index)
                         }}
                         style={heartLogo}>
                         <Image
-                            src={selectedItem ? HeartLogo : Heart}
+                            src={isSelected ? HeartLogo : Heart}
                             style={{ height: 30, width: 30, marginRight: 20 }}
                         />
                     </div>

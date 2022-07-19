@@ -1,6 +1,7 @@
 import moment from 'moment';
 import React from 'react';
 import { Image } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import '../App.css';
 import BackArrow from '../assets/backArrow.svg';
@@ -13,8 +14,17 @@ export const CharacterDetail = (props: any) => {
 
   const routes: any = useLocation();
   const navigate = useNavigate();
-  const params = routes?.state?.data;
+
   const { width, height } = useWindowDimensions();
+
+
+  const { charList } = useSelector((state: any) => state.mainReducer);
+  console.log("🚀 ~ file: CharacterDetail.tsx ~ line 22 ~ CharacterDetail ~ charList", charList)
+
+  const otherCharacters = charList.slice(0, 3);
+
+
+  const params = routes?.state?.data;
   const occupation = routes?.state?.data?.occupation;
   const birthday: string = moment(params?.birthday).format("Do-MMM-YY");;
 
@@ -22,9 +32,16 @@ export const CharacterDetail = (props: any) => {
   const mainView = {
     height: height
   };
-  const middleImgView = { marginTop: '200px' };
+  const middleImgView = {
+    marginTop: '200px'
+  };
   const middleImg = {
     width: '250px', height: '300px',
+  }
+
+  const otherImages = {
+    width: '150px', height: '200px',
+    marginRight: 40
   }
 
   return (
@@ -220,6 +237,44 @@ export const CharacterDetail = (props: any) => {
             }
           </div>
 
+
+          <div
+            className='d-flex flex-column'
+            style={{ marginTop: 60 }}>
+            <label
+              style={{
+                fontSize: '26px',
+                fontWeight: '600',
+                color: '#fff'
+              }}
+            >
+              Other characters
+            </label>
+            <div
+              className=" d-flex flex-row"
+              style={{ marginTop: 20, flexWrap: 'wrap' }}>
+              {otherCharacters.map((item: any, index: number) => {
+                return (
+                  <div
+                    className=" d-flex flex-column"
+                  >
+                    <Image
+                      src={item.img}
+                      style={otherImages}
+                      className="rounded"
+                    />
+                    <label
+                      style={{
+                        fontSize: '20px',
+                        color: '#fff', margin: 5
+                      }}>
+                      {item.name}
+                    </label>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
 
         </div>
       </div>
