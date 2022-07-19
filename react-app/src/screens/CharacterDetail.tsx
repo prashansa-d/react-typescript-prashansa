@@ -55,6 +55,7 @@ export const CharacterDetail = (props: any) => {
 
 
 
+
         {/* ------------------------First half view------------------------  */}
         <div
           className='d-flex flex-column col-5'
