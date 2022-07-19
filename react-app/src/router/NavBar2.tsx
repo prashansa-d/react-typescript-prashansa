@@ -13,17 +13,10 @@ import '../styles/Search.css';
 
 export const NavBar2 = (props: any) => {
 
-    const { width, height } = useWindowDimensions();
+    const { width } = useWindowDimensions();
 
 
-    const textInput = {
-        color: '#fff',
-        backgroundColor: '#232323',
-        height: 50,
-        width: '20%',
-        borderRadius: 3,
-        marginRight: 25
-    };
+   
     const reactLogoImg = {
         height: 50, width: 50
     }
@@ -31,29 +24,44 @@ export const NavBar2 = (props: any) => {
         height: 100, backgroundColor: '#000',
     }
     const titleText = {
-        color: '#fff'
+        color: '#fff',
+        fontWeight: '700'
     }
-    const favImg = {
-        height: 25, width: 25, marginRight: 20
+
+    const navView = {
+        alignItems: 'center',
+        width: width / 1.8,
+        justifyContent: 'space-between'
+    }
+    const backArrow = {
+        height: 15, width: 15,
+        marginLeft: 60, cursor: 'pointer'
+    }
+    const imgView = {
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
+    const lableStyle = {
+        color: '#18CA75', fontWeight: '300'
     }
 
     return (
-        <Navbar className='d-flex' style={mainView}>
+        <Navbar className='d-flex font-link' style={mainView}>
             <div className="d-flex flex-row "
-                style={{ alignItems: 'center', width: width / 1.8, justifyContent: 'space-between' }}>
+                style={navView}>
 
                 <div onClick={props.onClickBack}>
                     <Image
 
                         src={BackArrow}
-                        style={{ height: 15, width: 15, marginLeft: 60, cursor: 'pointer' }}
+                        style={backArrow}
                     />
 
                 </div>
 
 
                 <div className="d-flex flex-row "
-                    style={{ alignItems: 'center', justifyContent: 'center', }}
+                    style={imgView}
                 >
                     <Image
                         src={ReactLogo}
@@ -65,7 +73,7 @@ export const NavBar2 = (props: any) => {
             <Navbar.Toggle />
             <Navbar.Collapse className="justify-content-end">
                 <>
-                    <label style={{ color: '#fff' }}>
+                    <label style={lableStyle}>
                         Favourites
                     </label>
                 </>

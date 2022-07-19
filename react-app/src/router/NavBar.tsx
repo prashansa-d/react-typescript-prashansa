@@ -7,7 +7,6 @@ import HeartLogo from '../assets/HEART_FILLED.svg';
 import ReactLogo from '../assets/React-icon.svg';
 import { TITLE } from "../constants/String";
 import '../styles/Search.css';
-import BackArrow from '../assets/backArrow.svg';
 
 
 
@@ -32,7 +31,9 @@ export const NavBar = (props: any) => {
     height: 100, backgroundColor: '#000'
   }
   const titleText = {
-    color: '#fff'
+    color: '#fff',
+    fontWeight: '700',
+    fontSize: '24px'
   }
   const favImg = {
     height: 25, width: 25, marginRight: 20
@@ -42,13 +43,13 @@ export const NavBar = (props: any) => {
     <Navbar style={mainView}>
 
 
-     
+
       <>
         <Image
           src={ReactLogo}
           style={reactLogoImg}
         />
-        <Navbar.Brand href="/" style={titleText}>{TITLE}</Navbar.Brand>
+        <Navbar.Brand href="/" className='font-link' style={titleText}>{TITLE}</Navbar.Brand>
       </>
       <Navbar.Toggle />
       <Navbar.Collapse className="justify-content-end">

@@ -15,7 +15,7 @@ export const CharacterDetail = (props: any) => {
   const routes: any = useLocation();
   const navigate = useNavigate();
 
-  const { width, height } = useWindowDimensions();
+  const {  height } = useWindowDimensions();
 
 
   const { charList } = useSelector((state: any) => state.mainReducer);
@@ -36,7 +36,7 @@ export const CharacterDetail = (props: any) => {
     marginTop: '200px'
   };
   const middleImg = {
-    width: '250px', height: '300px',
+    width: '250px', height: '320px',
   }
 
   const otherImages = {
@@ -46,7 +46,7 @@ export const CharacterDetail = (props: any) => {
 
   return (
     <>
-      <div className='Detail'>
+      <div className='Detail font-link'>
         <Image
           src={params?.img}
           className="col-5 col-md-5"
@@ -58,11 +58,11 @@ export const CharacterDetail = (props: any) => {
 
         {/* ------------------------First half view------------------------  */}
         <div
-          className='d-flex flex-column col-5'
+          className='d-flex flex-column col-5 '
           style={{
             position: 'absolute',
             left: 0, right: 0, bottom: 0, top: 0, padding: 50,
-            backgroundImage: "linear-gradient(to bottom, rgba(13, 13, 13, 0.2), rgba(13, 13, 13, 0.9), rgba(0, 0, 0, 1))",
+            backgroundImage: "linear-gradient(to bottom, rgba(13, 13, 13, 0.7), rgba(13, 13, 13, 0.9), rgba(0, 0, 0, 1))",
           }}>
           <Image
             onClick={() => navigate(-1)}
@@ -88,8 +88,8 @@ export const CharacterDetail = (props: any) => {
               style={{ marginTop: '20px' }}>
               <label
                 style={{
-                  fontSize: '38px',
-                  fontWeight: 'bold',
+                  fontSize: '58px',
+                  fontWeight: '700',
                   color: '#fff'
                 }}
               >
@@ -97,8 +97,9 @@ export const CharacterDetail = (props: any) => {
               </label>
               <label
                 style={{
-                  fontSize: '24px',
-                  color: '#fff'
+                  fontSize: '32px',
+                  color: '#fff',
+                  fontWeight: '300',
                 }}
               >
                 {params?.nickname}
@@ -133,7 +134,7 @@ export const CharacterDetail = (props: any) => {
               <label
                 style={{
                   fontSize: '24px',
-                  fontWeight: '600',
+                  fontWeight: '500',
                   color: '#18CA75'
                 }}
               >
@@ -143,6 +144,7 @@ export const CharacterDetail = (props: any) => {
                 style={{
                   fontSize: '20px',
                   color: '#fff',
+                  fontWeight: '300',
                   marginTop: 10
                 }}
               >
@@ -161,7 +163,8 @@ export const CharacterDetail = (props: any) => {
               <label
                 style={{
                   fontSize: '24px',
-                  fontWeight: '200', alignSelf: 'center',
+                  fontWeight: '300',
+                   alignSelf: 'center',
                   color: '#fff', marginLeft: 20
                 }}
               >
@@ -178,7 +181,7 @@ export const CharacterDetail = (props: any) => {
             <label
               style={{
                 fontSize: '24px',
-                fontWeight: '600',
+                fontWeight: '500',
                 color: '#18CA75'
               }}
             >
@@ -189,6 +192,7 @@ export const CharacterDetail = (props: any) => {
                 <label
                   style={{
                     fontSize: '20px',
+                    fontWeight: '300',
                     color: '#fff', margin: 5
                   }}>
                   {item}
@@ -204,7 +208,7 @@ export const CharacterDetail = (props: any) => {
             <label
               style={{
                 fontSize: '24px',
-                fontWeight: '600',
+                fontWeight: '500',
                 color: '#18CA75'
               }}
             >
@@ -219,6 +223,7 @@ export const CharacterDetail = (props: any) => {
                       paddingLeft: 10,
                       paddingRight: 10,
                       fontSize: '20px',
+                      fontWeight: '300',
                       color: '#fff', margin: 5
                     }}>
                     Season {item}
@@ -226,7 +231,7 @@ export const CharacterDetail = (props: any) => {
                 )
               })}
             </div>
-            {params?.appearance?.length == 0 &&
+            {params?.appearance?.length === 0 &&
               <label
                 style={{
                   fontSize: '24px',
@@ -244,8 +249,8 @@ export const CharacterDetail = (props: any) => {
             style={{ marginTop: 60 }}>
             <label
               style={{
-                fontSize: '26px',
-                fontWeight: '600',
+                fontSize: '24px',
+                fontWeight: '700',
                 color: '#fff'
               }}
             >
@@ -266,8 +271,17 @@ export const CharacterDetail = (props: any) => {
                     />
                     <label
                       style={{
-                        fontSize: '20px',
-                        color: '#fff', margin: 5
+                        fontSize: '16px',
+                        fontWeight: '700',
+                        color: '#fff',  marginTop: 10
+                      }}>
+                      {item.name}
+                    </label>
+                    <label
+                      style={{
+                        fontSize: '14px',
+                        fontWeight: '300',
+                        color: '#fff', 
                       }}>
                       {item.name}
                     </label>

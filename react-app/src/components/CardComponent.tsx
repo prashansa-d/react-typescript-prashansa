@@ -13,7 +13,6 @@ export const CardComponent = (props: any) => {
 
     var Item = props.item;
 
-    const navigate = useNavigate();
 
     const { favouriteList } = useSelector((state: any) => state.mainReducer);
 
@@ -32,22 +31,27 @@ export const CardComponent = (props: any) => {
         width: '100%'
     };
     const textStyle = {
-        color: '#ccc'
+        color: '#ccc',
+        fontSize: '24px',
+        fontWeight: 700
+    };
+    const textStyle2 = {
+        color: '#ccc',
+        fontSize: '24px',
+        fontWeight: 300
     };
     const heartLogo = {
         cursor: 'pointer'
     };
 
     return (
-        <div className="col-md-4 d-flex justify-content-space-between my-3 mx-3"
+        <div className="col-md-4 d-flex justify-content-space-between my-3 mx-4 font-link"
             style={mainView}>
             <Card className="d "
                 style={{ width: "500px", backgroundColor: '#131313' }}>
                 <Card.Body className='d-flex flex-row align-items-flex-start justify-content-space-between' >
                     <div className='d-flex flex-row align-items-flex-start justify-content-flex-start'
-                        onClick={() => {
-                            navigate('characterdetail', { state: { data: Item } })
-                        }}
+                        onClick={props.onClickDetail}
                         style={clickableView}>
                         <img
                             src={Item?.img}
@@ -59,7 +63,7 @@ export const CardComponent = (props: any) => {
 
                             <div>
                                 <Card.Title style={textStyle}>{Item?.name}</Card.Title>
-                                <Card.Text style={textStyle}>{Item?.nickname}</Card.Text>
+                                <Card.Text style={textStyle2}>{Item?.nickname}</Card.Text>
                             </div>
 
                         </div>
@@ -72,7 +76,7 @@ export const CardComponent = (props: any) => {
                         style={heartLogo}>
                         <Image
                             src={isSelected ? HeartLogo : Heart}
-                            style={{ height: 30, width: 30, marginRight: 20 }}
+                            style={{ height: 35, width: 35, marginRight: 20 }}
                         />
                     </div>
                 </Card.Body>
