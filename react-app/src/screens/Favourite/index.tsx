@@ -49,7 +49,7 @@ export const Favourite = () => {
   }
 
   return (
-    < >
+    <>
       <NavBar2
         onClickBack={() => {
           navigate(-1)
