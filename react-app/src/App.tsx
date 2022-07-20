@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
-import { NavBar } from "./router/NavBar";
+import { NavBar } from "./router/NavBar/NavBar";
 import { CharacterDetail } from "./screens/CharacterDetail";
 import { Favourite } from "./screens/Favourite";
 import { Home } from "./screens/Home";
-import { NoPageFound } from "./screens/NoPageFound";
+import { NoPageFound } from "./screens/NoPageFound/NoPageFound";
 
 function App() {
   return (

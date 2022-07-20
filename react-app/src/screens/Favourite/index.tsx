@@ -1,10 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import '../App.css';
-import { CardComponent } from '../components/CardComponent';
-import { FavouriteListAction } from '../redux/action/action-creator';
-import { NavBar2 } from '../router/NavBar2';
+import '../../App.css';
+import { CardComponent } from '../../components/CardComponent';
+import { FavouriteListAction } from '../../redux/action/action-creator';
+import { NavBar2 } from '../../router/NavBar/NavBar2';
 
 
 

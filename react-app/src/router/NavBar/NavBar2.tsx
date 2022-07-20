@@ -1,12 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
 import { Image, Navbar } from "react-bootstrap";
-import '../App.css';
-import BackArrow from '../assets/backArrow.svg';
-import ReactLogo from '../assets/React-icon.svg';
-import useWindowDimensions from '../components/GetWindowSize';
-import { TITLE } from "../constants/String";
-import '../styles/Search.css';
+import '../../App.css';
+import BackArrow from '../../assets/backArrow.svg';
+import ReactLogo from '../../assets/React-icon.svg';
+import useWindowDimensions from '../../components/GetWindowSize';
+import { TITLE } from "../../constants/String";
+import '../../styles/Search.css';
 
 
 
@@ -21,7 +21,7 @@ export const NavBar2 = (props: any) => {
         height: 50, width: 50
     }
     const mainView = {
-        height: 100, backgroundColor: '#000',
+        height: 100, backgroundColor: '#000', paddingRight: 40
     }
     const titleText = {
         color: '#fff',

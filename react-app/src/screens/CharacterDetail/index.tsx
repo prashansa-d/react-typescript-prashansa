@@ -3,10 +3,10 @@ import React from 'react';
 import { Image } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
-import '../App.css';
-import BackArrow from '../assets/backArrow.svg';
-import BirthDayLogo from '../assets/bday.svg';
-import useWindowDimensions from '../components/GetWindowSize';
+import '../../App.css';
+import BackArrow from '../../assets/backArrow.svg';
+import BirthDayLogo from '../../assets/bday.svg';
+import useWindowDimensions from '../../components/GetWindowSize';
 
 
 export const CharacterDetail = (props: any) => {
@@ -60,7 +60,7 @@ export const CharacterDetail = (props: any) => {
   }
 
   const secondHalfView = {
-    padding: 50, paddingTop: 100,
+    padding: 50, paddingTop: 130,
   }
 
   const portrayedView = {

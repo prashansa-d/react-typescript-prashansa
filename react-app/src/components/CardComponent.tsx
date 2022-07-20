@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import { Card, Image } from 'react-bootstrap'
-import '../App.css';
-import HeartLogo from '../assets/HEART_FILLED.svg';
-import Heart from '../assets/HEART.svg';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Card, Image } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
+import '../App.css';
+import Heart from '../assets/HEART.svg';
+import HeartLogo from '../assets/HEART_FILLED.svg';
+import { CharacterModal, RootState } from '../interfaces/interface';
 
 
 

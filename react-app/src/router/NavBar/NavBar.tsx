@@ -2,12 +2,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from "react";
 import { Image, Navbar } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
-import '../App.css';
-import HeartLogo from '../assets/HEART_FILLED.svg';
-import ReactLogo from '../assets/React-icon.svg';
-import { TITLE } from "../constants/String";
-import '../styles/Search.css';
-import SearchIcon from '../assets/search.svg';
+import '../../App.css';
+import HeartLogo from '../../assets/HEART_FILLED.svg';
+import ReactLogo from '../../assets/React-icon.svg';
+import { TITLE } from "../../constants/String";
+import '../../styles/Search.css';
+import SearchIcon from '../../assets/search.svg';
 
 
 
@@ -29,7 +29,8 @@ export const NavBar = (props: any) => {
     height: 50, width: 50
   }
   const mainView = {
-    height: 100, backgroundColor: '#000'
+    height: 100, backgroundColor: '#000', paddingLeft: 30, 
+    paddingRight: 30
   }
   const titleText = {
     color: '#fff',
