@@ -7,6 +7,7 @@ import '../../App.css';
 import BackArrow from '../../assets/backArrow.svg';
 import BirthDayLogo from '../../assets/bday.svg';
 import useWindowDimensions from '../../components/GetWindowSize';
+import { colors } from '../../constants/Colors';
 
 
 export const CharacterDetail = (props: any) => {
@@ -50,12 +51,12 @@ export const CharacterDetail = (props: any) => {
   const nameStyle = {
     fontSize: '58px',
     fontWeight: '700',
-    color: '#fff'
+    color: colors.white
   }
 
   const nicknameStyle = {
     fontSize: '32px',
-    color: '#fff',
+    color: colors.white,
     fontWeight: '300',
   }
 
@@ -71,12 +72,12 @@ export const CharacterDetail = (props: any) => {
   const lableStyle = {
     fontSize: '24px',
     fontWeight: '500',
-    color: '#18CA75'
+    color: colors.green
   }
 
   const subLabelStyle = {
     fontSize: '20px',
-    color: '#fff',
+    color: colors.white,
     fontWeight: '300',
     marginTop: 10
   }
@@ -90,7 +91,7 @@ export const CharacterDetail = (props: any) => {
     fontSize: '24px',
     fontWeight: '300',
     alignSelf: 'center',
-    color: '#fff', marginLeft: 20
+    color: colors.white, marginLeft: 20
   }
 
 
@@ -99,23 +100,23 @@ export const CharacterDetail = (props: any) => {
   const occupationLabel = {
     fontSize: '24px',
     fontWeight: '500',
-    color: '#18CA75'
+    color: colors.green
   }
   const occupationSubLabel = {
     fontSize: '20px',
     fontWeight: '300',
-    color: '#fff', margin: 5
+    color: colors.white, margin: 5
   }
 
 
   const seasonView = { marginTop: 20 }
   const seasonText = {
-    backgroundColor: '#1A1A1A',
+    backgroundColor: colors.grey,
     paddingLeft: 10,
     paddingRight: 10,
     fontSize: '20px',
     fontWeight: '300',
-    color: '#fff', margin: 5
+    color: colors.white, margin: 5
   }
 
 
@@ -123,17 +124,17 @@ export const CharacterDetail = (props: any) => {
   const otherCharView = {
     fontSize: '24px',
     fontWeight: '700',
-    color: '#fff'
+    color: colors.white
   }
   const otherNameView = {
     fontSize: '16px',
     fontWeight: '700',
-    color: '#fff', marginTop: 10
+    color: colors.white, marginTop: 10
   }
   const otherNickNameView = {
     fontSize: '14px',
     fontWeight: '300',
-    color: '#fff',
+    color: colors.white,
   }
 
   return (

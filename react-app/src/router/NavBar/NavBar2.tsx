@@ -5,6 +5,7 @@ import '../../App.css';
 import BackArrow from '../../assets/backArrow.svg';
 import ReactLogo from '../../assets/React-icon.svg';
 import useWindowDimensions from '../../components/GetWindowSize';
+import { colors } from '../../constants/Colors';
 import { TITLE } from "../../constants/String";
 import '../../styles/Search.css';
 
@@ -16,15 +17,15 @@ export const NavBar2 = (props: any) => {
     const { width } = useWindowDimensions();
 
 
-   
+
     const reactLogoImg = {
         height: 50, width: 50
     }
     const mainView = {
-        height: 100, backgroundColor: '#000', paddingRight: 40
+        height: 100, backgroundColor: colors.black, paddingRight: 40
     }
     const titleText = {
-        color: '#fff',
+        color: colors.white,
         fontWeight: '700'
     }
 
@@ -42,7 +43,7 @@ export const NavBar2 = (props: any) => {
         justifyContent: 'center'
     }
     const lableStyle = {
-        color: '#18CA75', fontWeight: '300'
+        color: colors.green, fontWeight: '300'
     }
 
     return (

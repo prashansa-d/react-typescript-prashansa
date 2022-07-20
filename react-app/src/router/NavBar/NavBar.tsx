@@ -8,6 +8,7 @@ import ReactLogo from '../../assets/React-icon.svg';
 import { TITLE } from "../../constants/String";
 import '../../styles/Search.css';
 import SearchIcon from '../../assets/search.svg';
+import { colors } from '../../constants/Colors';
 
 
 
@@ -18,7 +19,7 @@ export const NavBar = (props: any) => {
   const [hideUnhideSearch, sethideUnhideSearch] = useState(false);
 
   const textInput = {
-    color: '#fff',
+    color: colors.white,
     backgroundColor: 'transparent',
     height: 50,
     width: '90%',
@@ -29,11 +30,11 @@ export const NavBar = (props: any) => {
     height: 50, width: 50
   }
   const mainView = {
-    height: 100, backgroundColor: '#000', paddingLeft: 30, 
+    height: 100, backgroundColor: colors.black, paddingLeft: 30, 
     paddingRight: 30
   }
   const titleText = {
-    color: '#fff',
+    color: colors.white,
     fontWeight: '700',
     fontSize: '24px'
   }
@@ -45,7 +46,7 @@ export const NavBar = (props: any) => {
     marginRight: 20, paddingRight: 10
   };
   const inputImageView = {
-    backgroundColor: '#232323',
+    backgroundColor: colors.greyShade,
     borderRadius: 5, alignItems: 'center',
     marginRight: 20, paddingRight: 10
   }
