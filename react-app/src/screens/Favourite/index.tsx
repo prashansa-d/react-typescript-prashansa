@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import '../../App.css';
 import { CardComponent } from '../../components/CardComponent';
+import { CharacterModal } from '../../interfaces/interface';
 import { FavouriteListAction } from '../../redux/action/action-creator';
 import { NavBar2 } from '../../router/NavBar/NavBar2';
 
@@ -34,7 +35,7 @@ export const Favourite = () => {
 
 
 
-  const onClickLike = (item: any, index: number) => {
+  const onClickLike = (item: CharacterModal, index: number) => {
 
     const favList = [...favouriteList];
     const indexPostion = favList.findIndex(i => i === item.char_id)
@@ -57,7 +58,7 @@ export const Favourite = () => {
       />
 
       <div className="df" style={mainView}>
-        {favChar.map((item: object, index: number) => {
+        {favChar.map((item: CharacterModal, index: number) => {
           return (
             <CardComponent
               item={item}
