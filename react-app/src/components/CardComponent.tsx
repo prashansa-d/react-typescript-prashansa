@@ -30,18 +30,34 @@ export const CardComponent = (props: any) => {
     const nameView = {
         width: '100%'
     };
+    const potrayedStyle = {
+        color: '#18CA75',
+        fontSize: '14px',
+        fontWeight: 500,
+        marginRight: 25
+    };
+    const potrayedStyle2 = {
+        color: '#fff',
+        fontSize: '14px',
+        fontWeight: 300
+    };
     const textStyle = {
-        color: '#ccc',
+        color: '#fff',
         fontSize: '24px',
         fontWeight: 700
     };
     const textStyle2 = {
-        color: '#ccc',
+        color: '#fff',
         fontSize: '24px',
-        fontWeight: 300
+        fontWeight: '300'
     };
     const heartLogo = {
         cursor: 'pointer'
+    };
+
+    const potrayedView = {
+        marginTop: 25,
+        alignItems: 'center'
     };
 
     return (
@@ -58,12 +74,17 @@ export const CardComponent = (props: any) => {
                             height="200"
                             width={"150"}
                         />
-                        <div className='mx-4 mt-3 d-flex flex-row justify-content-space-between align-items-flex-start'
+                        <div className='mx-4 mt-3 d-flex flex-column justify-content-space-between align-items-flex-start'
                             style={nameView}>
 
                             <div>
                                 <Card.Title style={textStyle}>{Item?.name}</Card.Title>
                                 <Card.Text style={textStyle2}>{Item?.nickname}</Card.Text>
+                            </div>
+                            <div className='d-flex'
+                                style={potrayedView}>
+                                <label style={potrayedStyle}>Portrayed</label>
+                                <label style={potrayedStyle2}>{Item?.nickname}</label>
                             </div>
 
                         </div>

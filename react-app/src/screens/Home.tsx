@@ -49,12 +49,16 @@ export const Home = () => {
 
   const searchList = (text: string) => {
     if (text.length > 0) {
+      console.log("1");
+
       fetch(`${SEARCH_CHARACTER_LIST}${text}`)
         .then((res) => res.json())
         .then((res) => {
           setcharacterList(res)
         })
     } else {
+      console.log("2");
+
       setcharacterList(charList)
     }
   }

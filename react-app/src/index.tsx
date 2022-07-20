@@ -11,6 +11,7 @@ import { store } from './redux/store';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
+  // document.body.style = 'background: black' as HTMLElement;
 );
 root.render(
   <React.StrictMode>

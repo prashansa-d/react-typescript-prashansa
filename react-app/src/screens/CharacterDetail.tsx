@@ -15,11 +15,10 @@ export const CharacterDetail = (props: any) => {
   const routes: any = useLocation();
   const navigate = useNavigate();
 
-  const {  height } = useWindowDimensions();
+  const { height } = useWindowDimensions();
 
 
   const { charList } = useSelector((state: any) => state.mainReducer);
-  console.log("🚀 ~ file: CharacterDetail.tsx ~ line 22 ~ CharacterDetail ~ charList", charList)
 
   const otherCharacters = charList.slice(0, 3);
 
@@ -42,6 +41,99 @@ export const CharacterDetail = (props: any) => {
   const otherImages = {
     width: '150px', height: '200px',
     marginRight: 40
+  }
+
+  const nameView = {
+    marginTop: '20px'
+  }
+
+  const nameStyle = {
+    fontSize: '58px',
+    fontWeight: '700',
+    color: '#fff'
+  }
+
+  const nicknameStyle = {
+    fontSize: '32px',
+    color: '#fff',
+    fontWeight: '300',
+  }
+
+  const secondHalfView = {
+    padding: 50, paddingTop: 100,
+  }
+
+  const portrayedView = {
+    justifyContent: 'space-between',
+  }
+
+
+  const lableStyle = {
+    fontSize: '24px',
+    fontWeight: '500',
+    color: '#18CA75'
+  }
+
+  const subLabelStyle = {
+    fontSize: '20px',
+    color: '#fff',
+    fontWeight: '300',
+    marginTop: 10
+  }
+
+
+
+  const bdayImage = {
+    width: 25, height: 25, alignSelf: 'center'
+  }
+  const bdayLogo = {
+    fontSize: '24px',
+    fontWeight: '300',
+    alignSelf: 'center',
+    color: '#fff', marginLeft: 20
+  }
+
+
+
+  const occupationView = { marginTop: 60 }
+  const occupationLabel = {
+    fontSize: '24px',
+    fontWeight: '500',
+    color: '#18CA75'
+  }
+  const occupationSubLabel = {
+    fontSize: '20px',
+    fontWeight: '300',
+    color: '#fff', margin: 5
+  }
+
+
+  const seasonView = { marginTop: 20 }
+  const seasonText = {
+    backgroundColor: '#1A1A1A',
+    paddingLeft: 10,
+    paddingRight: 10,
+    fontSize: '20px',
+    fontWeight: '300',
+    color: '#fff', margin: 5
+  }
+
+
+
+  const otherCharView = {
+    fontSize: '24px',
+    fontWeight: '700',
+    color: '#fff'
+  }
+  const otherNameView = {
+    fontSize: '16px',
+    fontWeight: '700',
+    color: '#fff', marginTop: 10
+  }
+  const otherNickNameView = {
+    fontSize: '14px',
+    fontWeight: '300',
+    color: '#fff',
   }
 
   return (
@@ -85,22 +177,14 @@ export const CharacterDetail = (props: any) => {
             {/* --------------------This is label view-------------------- */}
             <div
               className='d-flex flex-column'
-              style={{ marginTop: '20px' }}>
+              style={nameView}>
               <label
-                style={{
-                  fontSize: '58px',
-                  fontWeight: '700',
-                  color: '#fff'
-                }}
+                style={nameStyle}
               >
                 {params?.name}
               </label>
               <label
-                style={{
-                  fontSize: '32px',
-                  color: '#fff',
-                  fontWeight: '300',
-                }}
+                style={nicknameStyle}
               >
                 {params?.nickname}
               </label>
@@ -122,31 +206,20 @@ export const CharacterDetail = (props: any) => {
         {/* ------------------------Second half view------------------------  */}
         <div
           className='d-flex flex-column col-7'
-          style={{
-            padding: 50, paddingTop: 100,
-          }}>
+          style={secondHalfView}>
 
 
           <div className='d-flex flex-row'
-            style={{ justifyContent: 'space-between', }}>
+            style={portrayedView}>
             <div
               className='d-flex flex-column'>
               <label
-                style={{
-                  fontSize: '24px',
-                  fontWeight: '500',
-                  color: '#18CA75'
-                }}
+                style={lableStyle}
               >
                 Portrayed
               </label>
               <label
-                style={{
-                  fontSize: '20px',
-                  color: '#fff',
-                  fontWeight: '300',
-                  marginTop: 10
-                }}
+                style={subLabelStyle}
               >
                 {params?.portrayed}
               </label>
@@ -156,17 +229,10 @@ export const CharacterDetail = (props: any) => {
               className='d-flex flex-row'>
               <Image
                 src={BirthDayLogo}
-                style={{
-                  width: 25, height: 25, alignSelf: 'center'
-                }}
+                style={bdayImage}
               />
               <label
-                style={{
-                  fontSize: '24px',
-                  fontWeight: '300',
-                   alignSelf: 'center',
-                  color: '#fff', marginLeft: 20
-                }}
+                style={bdayLogo}
               >
                 {birthday}
               </label>
@@ -177,24 +243,16 @@ export const CharacterDetail = (props: any) => {
 
           <div
             className='d-flex flex-column'
-            style={{ marginTop: 60 }}>
+            style={occupationView}>
             <label
-              style={{
-                fontSize: '24px',
-                fontWeight: '500',
-                color: '#18CA75'
-              }}
+              style={occupationLabel}
             >
               Occupation
             </label>
             {occupation.map((item: any, index: number) => {
               return (
                 <label
-                  style={{
-                    fontSize: '20px',
-                    fontWeight: '300',
-                    color: '#fff', margin: 5
-                  }}>
+                  style={occupationSubLabel}>
                   {item}
                 </label>
               )
@@ -204,28 +262,17 @@ export const CharacterDetail = (props: any) => {
 
           <div
             className='d-flex flex-column'
-            style={{ marginTop: 60 }}>
+            style={occupationView}>
             <label
-              style={{
-                fontSize: '24px',
-                fontWeight: '500',
-                color: '#18CA75'
-              }}
+              style={occupationLabel}
             >
               Appeared in
             </label>
-            <div style={{ marginTop: 20 }}>
+            <div style={seasonView}>
               {params?.appearance.map((item: any, index: number) => {
                 return (
                   <label
-                    style={{
-                      backgroundColor: '#1A1A1A',
-                      paddingLeft: 10,
-                      paddingRight: 10,
-                      fontSize: '20px',
-                      fontWeight: '300',
-                      color: '#fff', margin: 5
-                    }}>
+                    style={seasonText}>
                     Season {item}
                   </label>
                 )
@@ -233,11 +280,7 @@ export const CharacterDetail = (props: any) => {
             </div>
             {params?.appearance?.length === 0 &&
               <label
-                style={{
-                  fontSize: '24px',
-                  fontWeight: '600',
-                  color: '#fff'
-                }} >
+                style={seasonText} >
                 --
               </label>
             }
@@ -246,19 +289,15 @@ export const CharacterDetail = (props: any) => {
 
           <div
             className='d-flex flex-column'
-            style={{ marginTop: 60 }}>
+            style={occupationView}>
             <label
-              style={{
-                fontSize: '24px',
-                fontWeight: '700',
-                color: '#fff'
-              }}
+              style={otherCharView}
             >
               Other characters
             </label>
             <div
               className=" d-flex flex-row"
-              style={{ marginTop: 20, flexWrap: 'wrap' }}>
+              style={seasonView}>
               {otherCharacters.map((item: any, index: number) => {
                 return (
                   <div
@@ -270,19 +309,11 @@ export const CharacterDetail = (props: any) => {
                       className="rounded"
                     />
                     <label
-                      style={{
-                        fontSize: '16px',
-                        fontWeight: '700',
-                        color: '#fff',  marginTop: 10
-                      }}>
+                      style={otherNameView}>
                       {item.name}
                     </label>
                     <label
-                      style={{
-                        fontSize: '14px',
-                        fontWeight: '300',
-                        color: '#fff', 
-                      }}>
+                      style={otherNickNameView}>
                       {item.name}
                     </label>
                   </div>
