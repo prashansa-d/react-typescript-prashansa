@@ -1,6 +1,6 @@
 html {
   bottom : 0;
-  background-color : #000
+  background-color : black
   }
 
 
@@ -22,7 +22,7 @@ html {
   box-shadow: none !important;
 }
 .App-header {
-  background-color: #000;
+  background-color: black;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

@@ -7,7 +7,6 @@ import ReactLogo from '../../assets/React-icon.svg';
 import useWindowDimensions from '../../components/GetWindowSize';
 import { colors } from '../../constants/Colors';
 import { TITLE } from "../../constants/String";
-import '../../styles/Search.css';
 
 
 interface NavBarProps {

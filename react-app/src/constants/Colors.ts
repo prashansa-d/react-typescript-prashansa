@@ -5,6 +5,7 @@ export const colors = {
     black: '#000000',
     green: '#18CA75',
     greyShade: '#232323',
-    grey: '#1A1A1A'
+    grey: '#1A1A1A',
+    cardColor: '#131313'
 };
 

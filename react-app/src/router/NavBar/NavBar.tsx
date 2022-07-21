@@ -6,7 +6,6 @@ import '../../App.css';
 import HeartLogo from '../../assets/HEART_FILLED.svg';
 import ReactLogo from '../../assets/React-icon.svg';
 import { TITLE } from "../../constants/String";
-import '../../styles/Search.css';
 import SearchIcon from '../../assets/search.svg';
 import { colors } from '../../constants/Colors';
 
