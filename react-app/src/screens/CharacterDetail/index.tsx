@@ -6,17 +6,20 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import '../../App.css';
 import BackArrow from '../../assets/backArrow.svg';
 import BirthDayLogo from '../../assets/bday.svg';
-import useWindowDimensions from '../../components/GetWindowSize';
-import { colors } from '../../constants/Colors';
+import { CharacterModal } from '../../interfaces/interface';
+import { styles } from './index.styles';
 
 
-export const CharacterDetail = (props: any) => {
+export const CharacterDetail = () => {
 
+  interface Routes {
+    data: CharacterModal
+  }
 
-  const routes: any = useLocation();
+  const { state } = useLocation()
+  const { data } = state as Routes
   const navigate = useNavigate();
 
-  const { height } = useWindowDimensions();
 
 
   const { charList } = useSelector((state: any) => state.mainReducer);
@@ -24,126 +27,21 @@ export const CharacterDetail = (props: any) => {
   const otherCharacters = charList.slice(0, 3);
 
 
-  const params = routes?.state?.data;
-  const occupation = routes?.state?.data?.occupation;
+  const params = data;
+  const occupation = data?.occupation;
   const birthday: string = moment(params?.birthday).format("Do-MMM-YY");;
 
 
-  const mainView = {
-    height: height
-  };
-  const middleImgView = {
-    marginTop: '200px'
-  };
-  const middleImg = {
-    width: '250px', height: '320px',
-  }
-
-  const otherImages = {
-    width: '150px', height: '200px',
-    marginRight: 40
-  }
-
-  const nameView = {
-    marginTop: '20px'
-  }
-
-  const nameStyle = {
-    fontSize: '58px',
-    fontWeight: '700',
-    color: colors.white
-  }
-
-  const nicknameStyle = {
-    fontSize: '32px',
-    color: colors.white,
-    fontWeight: '300',
-  }
-
-  const secondHalfView = {
-    padding: 50, paddingTop: 130,
-  }
-
-  const portrayedView = {
-    justifyContent: 'space-between',
-  }
-
-
-  const lableStyle = {
-    fontSize: '24px',
-    fontWeight: '500',
-    color: colors.green
-  }
-
-  const subLabelStyle = {
-    fontSize: '20px',
-    color: colors.white,
-    fontWeight: '300',
-    marginTop: 10
-  }
-
-
-
-  const bdayImage = {
-    width: 25, height: 25, alignSelf: 'center'
-  }
-  const bdayLogo = {
-    fontSize: '24px',
-    fontWeight: '300',
-    alignSelf: 'center',
-    color: colors.white, marginLeft: 20
-  }
-
-
-
-  const occupationView = { marginTop: 60 }
-  const occupationLabel = {
-    fontSize: '24px',
-    fontWeight: '500',
-    color: colors.green
-  }
-  const occupationSubLabel = {
-    fontSize: '20px',
-    fontWeight: '300',
-    color: colors.white, margin: 5
-  }
-
-
-  const seasonView = { marginTop: 20 }
-  const seasonText = {
-    backgroundColor: colors.grey,
-    paddingLeft: 10,
-    paddingRight: 10,
-    fontSize: '20px',
-    fontWeight: '300',
-    color: colors.white, margin: 5
-  }
-
-
-
-  const otherCharView = {
-    fontSize: '24px',
-    fontWeight: '700',
-    color: colors.white
-  }
-  const otherNameView = {
-    fontSize: '16px',
-    fontWeight: '700',
-    color: colors.white, marginTop: 10
-  }
-  const otherNickNameView = {
-    fontSize: '14px',
-    fontWeight: '300',
-    color: colors.white,
-  }
 
   return (
     <>
       <div className='Detail font-link'>
         <Image
           src={params?.img}
-          className="col-5 col-md-5"
-          style={mainView}
+          className="col-5 col-md-5 object-fit-cover"
+          style={styles.mainView}
+          id='imgUNcover'
+        // className={styles.mainView}
         />
 
 
@@ -167,25 +65,26 @@ export const CharacterDetail = (props: any) => {
           {/* ----------------------------Front image and label view----------------------------  */}
           <div
             className="text-center align-self-center"
-            style={middleImgView}>
+            style={styles.middleImgView}>
 
             <Image
               src={params?.img}
-              style={middleImg}
+              style={styles.middleImg}
               className="rounded"
+              id='imgUNcover'
             />
 
             {/* --------------------This is label view-------------------- */}
             <div
               className='d-flex flex-column'
-              style={nameView}>
+              style={styles.nameView}>
               <label
-                style={nameStyle}
+                style={styles.nameStyle}
               >
                 {params?.name}
               </label>
               <label
-                style={nicknameStyle}
+                style={styles.nicknameStyle}
               >
                 {params?.nickname}
               </label>
@@ -207,20 +106,20 @@ export const CharacterDetail = (props: any) => {
         {/* ------------------------Second half view------------------------  */}
         <div
           className='d-flex flex-column col-7'
-          style={secondHalfView}>
+          style={styles.secondHalfView}>
 
 
           <div className='d-flex flex-row'
-            style={portrayedView}>
+            style={styles.portrayedView}>
             <div
               className='d-flex flex-column'>
               <label
-                style={lableStyle}
+                style={styles.lableStyle}
               >
                 Portrayed
               </label>
               <label
-                style={subLabelStyle}
+                style={styles.subLabelStyle}
               >
                 {params?.portrayed}
               </label>
@@ -230,10 +129,10 @@ export const CharacterDetail = (props: any) => {
               className='d-flex flex-row'>
               <Image
                 src={BirthDayLogo}
-                style={bdayImage}
+                style={styles.bdayImage}
               />
               <label
-                style={bdayLogo}
+                style={styles.bdayLogo}
               >
                 {birthday}
               </label>
@@ -244,16 +143,16 @@ export const CharacterDetail = (props: any) => {
 
           <div
             className='d-flex flex-column'
-            style={occupationView}>
+            style={styles.occupationView}>
             <label
-              style={occupationLabel}
+              style={styles.occupationLabel}
             >
               Occupation
             </label>
-            {occupation.map((item: any, index: number) => {
+            {occupation.map((item: string, index: number) => {
               return (
                 <label
-                  style={occupationSubLabel}>
+                  style={styles.occupationSubLabel}>
                   {item}
                 </label>
               )
@@ -263,17 +162,17 @@ export const CharacterDetail = (props: any) => {
 
           <div
             className='d-flex flex-column'
-            style={occupationView}>
+            style={styles.occupationView}>
             <label
-              style={occupationLabel}
+              style={styles.occupationLabel}
             >
               Appeared in
             </label>
-            <div style={seasonView}>
-              {params?.appearance.map((item: any, index: number) => {
+            <div style={styles.seasonView}>
+              {params?.appearance.map((item: number, index: number) => {
                 return (
                   <label
-                    style={seasonText}>
+                    style={styles.seasonText}>
                     Season {item}
                   </label>
                 )
@@ -281,7 +180,7 @@ export const CharacterDetail = (props: any) => {
             </div>
             {params?.appearance?.length === 0 &&
               <label
-                style={seasonText} >
+                style={styles.seasonText} >
                 --
               </label>
             }
@@ -290,31 +189,31 @@ export const CharacterDetail = (props: any) => {
 
           <div
             className='d-flex flex-column'
-            style={occupationView}>
+            style={styles.occupationView}>
             <label
-              style={otherCharView}
+              style={styles.otherCharView}
             >
               Other characters
             </label>
             <div
               className=" d-flex flex-row"
-              style={seasonView}>
-              {otherCharacters.map((item: any, index: number) => {
+              style={styles.seasonView}>
+              {otherCharacters.map((item: CharacterModal, index: number) => {
                 return (
                   <div
                     className=" d-flex flex-column"
                   >
                     <Image
                       src={item.img}
-                      style={otherImages}
+                      style={styles.otherImages}
                       className="rounded"
                     />
                     <label
-                      style={otherNameView}>
+                      style={styles.otherNameView}>
                       {item.name}
                     </label>
                     <label
-                      style={otherNickNameView}>
+                      style={styles.otherNickNameView}>
                       {item.name}
                     </label>
                   </div>
@@ -328,3 +227,7 @@ export const CharacterDetail = (props: any) => {
     </>
   )
 }
+
+
+
+

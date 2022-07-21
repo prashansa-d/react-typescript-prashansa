@@ -2,22 +2,24 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import '../../App.css';
-import { CardComponent } from '../../components/CardComponent';
+import { CardComponent } from '../../components/cardComponent/CardComponent';
 import { CHARACTER_LIST, SEARCH_CHARACTER_LIST } from '../../constants/URLConstants';
 import { CharaListAction, FavouriteListAction } from '../../redux/action/action-creator';
 import { NavBar } from '../../router/NavBar/NavBar';
 import { CharacterModal } from '../../interfaces/interface';
+import { RootState } from '../../redux/store/store';
+import { styles } from './index.styles';
 
 export const Home = () => {
 
 
-  const { favouriteList, charList } = useSelector((state: any) => state.mainReducer);
+  const { favouriteList, charList } = useSelector((state: RootState) => state.mainReducer);
 
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
-  const [characterList, setcharacterList] = useState<any>([]);
+  const [characterList, setcharacterList] = useState([]);
 
 
   useEffect(() => {
@@ -25,6 +27,7 @@ export const Home = () => {
       CHARACTER_LIST)
       .then((res) => res.json())
       .then((res) => {
+        console.log("🚀 ~ file: index.tsx ~ line 28 ~ .then ~ res", res)
         setcharacterList(res)
         dispatch(CharaListAction(res));
       })
@@ -34,7 +37,7 @@ export const Home = () => {
 
 
 
-  const onClickLike = (item: CharacterModal, index: number) => {
+  const onClickLike = (item: CharacterModal) => {
 
     const favList = [...favouriteList];
     const indexPostion = favList.findIndex(i => i === item.char_id)
@@ -63,9 +66,7 @@ export const Home = () => {
     }
   }
 
-  const mainView = {
-    paddingLeft: '90px'
-  }
+
 
 
 
@@ -77,17 +78,16 @@ export const Home = () => {
         }}
       />
 
-      <div className="df" style={mainView}>
-        {characterList.map((item: object, index: number) => {
+      <div className="df" style={styles.mainView}>
+        {characterList.map((item: CharacterModal, index: number) => {
           return (
             <CardComponent
               item={item}
-              index={index}
               onClickDetail={() => {
                 navigate('/characterdetail', { state: { data: item } })
               }}
-              onClickFav={(item: CharacterModal, index: number) => {
-                onClickLike(item, index);
+              onClickFav={(item: CharacterModal) => {
+                onClickLike(item);
               }}
             />
           )
@@ -96,3 +96,6 @@ export const Home = () => {
     </>
   )
 }
+
+
+

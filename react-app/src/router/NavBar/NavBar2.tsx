@@ -10,9 +10,12 @@ import { TITLE } from "../../constants/String";
 import '../../styles/Search.css';
 
 
+interface NavBarProps {
+    onClickBack: () => void;
+}
 
 
-export const NavBar2 = (props: any) => {
+export const NavBar2: React.FC<NavBarProps> = ({ onClickBack }) => {
 
     const { width } = useWindowDimensions();
 
@@ -51,7 +54,7 @@ export const NavBar2 = (props: any) => {
             <div className="d-flex flex-row "
                 style={navView}>
 
-                <div onClick={props.onClickBack}>
+                <div onClick={onClickBack}>
                     <Image
 
                         src={BackArrow}

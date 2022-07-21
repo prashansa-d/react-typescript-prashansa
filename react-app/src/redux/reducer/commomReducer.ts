@@ -1,6 +1,7 @@
-import { CHARACHTER_LIST, FAVOURITE_LIST} from "../action/action-typers"
+import { CHARACHTER_LIST, FAVOURITE_LIST } from "../action/action-typers"
+import { CharacterModal } from '../../interfaces/interface';
 
-
+// let initialState: { favouriteList: CharacterModal[]; charList: CharacterModal[] } = {
 let initialState = {
     favouriteList: [],
     charList: []
@@ -9,11 +10,12 @@ let initialState = {
 
 
 
+// export const mainReducer = (state = initialState, action: { type: string; payload: CharacterModal[] }) => {
 export const mainReducer = (state = initialState, action: any) => {
     switch (action.type) {
 
         case CHARACHTER_LIST:
-            
+
             return {
                 ...state, charList: action.payload
             }

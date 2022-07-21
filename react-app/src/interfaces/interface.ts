@@ -10,7 +10,6 @@ export interface CharacterModal {
     appearance: number[];
     portrayed: string;
     category: string;
-    better_call_saul_appearance: any[];
 }
 
 

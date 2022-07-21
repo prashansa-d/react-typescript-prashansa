@@ -10,9 +10,11 @@ import '../../styles/Search.css';
 import SearchIcon from '../../assets/search.svg';
 import { colors } from '../../constants/Colors';
 
+interface Input {
+  onChangeText: (text: string) => void;
+}
 
-
-export const NavBar = (props: any) => {
+export const NavBar: React.FC<Input> = (props) => {
 
   const navigate = useNavigate();
 
@@ -30,7 +32,7 @@ export const NavBar = (props: any) => {
     height: 50, width: 50
   }
   const mainView = {
-    height: 100, backgroundColor: colors.black, paddingLeft: 30, 
+    height: 100, backgroundColor: colors.black, paddingLeft: 30,
     paddingRight: 30
   }
   const titleText = {
