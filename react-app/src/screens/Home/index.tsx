@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import '../../App.css';
 import { CardComponent } from '../../components/cardComponent/CardComponent';
 import { CHARACTER_LIST, SEARCH_CHARACTER_LIST } from '../../constants/URLConstants';
-import { CharaListAction, FavouriteListAction } from '../../redux/action/action-creator';
-import { NavBar } from '../../router/NavBar/NavBar';
 import { CharacterModal } from '../../interfaces/interface';
-import { RootState } from '../../redux/store/store';
+import { CharaListAction, FavouriteListAction } from '../../redux/action/action-creator';
+import { useAppSelector } from '../../redux/hooks';
+import { NavBar } from '../../router/NavBar/NavBar';
 import { styles } from './index.styles';
 
 export const Home = () => {
 
 
-  const { favouriteList, charList } = useSelector((state: RootState) => state.mainReducer);
+  const { favouriteList, charList } = useAppSelector((state) => state.mainReducer);
 
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
-  const [characterList, setcharacterList] = useState([]);
+  const [characterList, setcharacterList] = useState<CharacterModal[]>([]);
 
 
   useEffect(() => {
@@ -39,8 +39,8 @@ export const Home = () => {
 
   const onClickLike = (item: CharacterModal) => {
 
-    const favList = [...favouriteList];
-    const indexPostion = favList.findIndex(i => i === item.char_id)
+    const favList = favouriteList
+    const indexPostion = favList.findIndex((i) => i === item.char_id)
     if (indexPostion === -1) {
       favList.push(item.char_id)
     } else {

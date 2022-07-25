@@ -1,19 +1,20 @@
-import { configureStore } from '@reduxjs/toolkit'
-import { CharacterModal } from '../../interfaces/interface';
-import { mainReducer } from '../reducer/commomReducer'
-// ...
+import { createStore } from "redux";
+import rootReducers from "../reducer/rootReducers";
+// import { configureStore } from '@reduxjs/toolkit'
+// import { CharacterAction, CharacterModal, DispatchType } from '../../interfaces/interface';
 
 
-interface StoreInterface {
-    favouriteList: string;
-    charList: CharacterModal[]
-}
 
-export const store = configureStore<any>({
-    reducer: {
-        mainReducer,
-    },
-});
+
+export const store = createStore(rootReducers);
+
+export type RootState = ReturnType<typeof store.getState>;
+
+// export const store : Store<CharacterModal, CharacterAction> & {
+//     dispatch: DispatchType }= createStore(
+//        mainReducer,
+
+// )
 
 // export const store = configureStore({
 //     reducer: {
@@ -21,5 +22,7 @@ export const store = configureStore<any>({
 //     },
 //   })
 
-export type RootState = ReturnType<typeof store.getState>;
+// export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch
+
 // export type RootState= ReturnType<typeof store>

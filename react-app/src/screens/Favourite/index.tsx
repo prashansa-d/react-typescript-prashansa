@@ -23,7 +23,7 @@ export const Favourite = () => {
 
 
   var favChar = charList.filter(function (obj: CharacterModal) {
-    return favouriteList.some(function (obj2: Number) {
+    return favouriteList.some(function (obj2) {
       return obj.char_id === obj2;
     });
   });
@@ -35,7 +35,7 @@ export const Favourite = () => {
   const onClickLike = (item: CharacterModal) => {
 
     const favList = [...favouriteList];
-    const indexPostion = favList.findIndex(i => i === item.char_id)
+    const indexPostion = favList.findIndex((i) => i === item.char_id)
     if (indexPostion === -1) {
       favList.push(item.char_id)
     } else {

@@ -7,6 +7,8 @@ import '../../App.css';
 import BackArrow from '../../assets/backArrow.svg';
 import BirthDayLogo from '../../assets/bday.svg';
 import { CharacterModal } from '../../interfaces/interface';
+import { useAppSelector } from '../../redux/hooks';
+import { RootState } from '../../redux/store/store';
 import { styles } from './index.styles';
 
 
@@ -22,14 +24,14 @@ export const CharacterDetail = () => {
 
 
 
-  const { charList } = useSelector((state: any) => state.mainReducer);
+  const { charList } = useAppSelector((state) => state.mainReducer);
 
   const otherCharacters = charList.slice(0, 3);
 
 
-  const params = data;
-  const occupation = data?.occupation;
-  const birthday: string = moment(params?.birthday).format("Do-MMM-YY");;
+  const {birthday,img, nickname, name, appearance, occupation, portrayed} = {...data};
+  // const occupation = data?.occupation;
+  const birthdayFormated: string = moment(birthday).format("Do-MMM-YY");;
 
 
 
@@ -37,7 +39,7 @@ export const CharacterDetail = () => {
     <>
       <div className='Detail font-link'>
         <Image
-          src={params?.img}
+          src={img}
           className="col-5 col-md-5 object-fit-cover"
           style={styles.mainView}
           id='imgUNcover'
@@ -68,7 +70,7 @@ export const CharacterDetail = () => {
             style={styles.middleImgView}>
 
             <Image
-              src={params?.img}
+              src={img}
               style={styles.middleImg}
               className="rounded"
               id='imgUNcover'
@@ -81,12 +83,12 @@ export const CharacterDetail = () => {
               <label
                 style={styles.nameStyle}
               >
-                {params?.name}
+                {name}
               </label>
               <label
                 style={styles.nicknameStyle}
               >
-                {params?.nickname}
+                {nickname}
               </label>
               {/* </div> */}
             </div>
@@ -121,7 +123,7 @@ export const CharacterDetail = () => {
               <label
                 style={styles.subLabelStyle}
               >
-                {params?.portrayed}
+                {portrayed}
               </label>
             </div>
 
@@ -134,7 +136,7 @@ export const CharacterDetail = () => {
               <label
                 style={styles.bdayLogo}
               >
-                {birthday}
+                {birthdayFormated}
               </label>
             </div>
           </div>
@@ -169,7 +171,7 @@ export const CharacterDetail = () => {
               Appeared in
             </label>
             <div style={styles.seasonView}>
-              {params?.appearance.map((item: number, index: number) => {
+              {appearance.map((item: number, index: number) => {
                 return (
                   <label
                     style={styles.seasonText}>
@@ -178,7 +180,7 @@ export const CharacterDetail = () => {
                 )
               })}
             </div>
-            {params?.appearance?.length === 0 &&
+            {appearance?.length === 0 &&
               <label
                 style={styles.seasonText} >
                 --

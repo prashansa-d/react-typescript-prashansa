@@ -1,10 +1,10 @@
 import React from 'react';
 import { Card, Image } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
 import '../../App.css';
 import Heart from '../../assets/HEART.svg';
 import HeartLogo from '../../assets/HEART_FILLED.svg';
-import { CharacterModal, RootState } from '../../interfaces/interface';
+import { CharacterModal } from '../../interfaces/interface';
+import { useAppSelector } from '../../redux/hooks';
 import { style } from './Card.styles';
 
 interface CharacterListProps {
@@ -19,10 +19,10 @@ export const CardComponent: React.FC<CharacterListProps> = ({ item, onClickDetai
     var Item = item;
 
 
-    const { favouriteList } = useSelector((state: any) => state.mainReducer);
+    const { favouriteList } = useAppSelector((state) => state.mainReducer);
 
 
-    const isSelected = favouriteList.findIndex((i: Number) => i === Item.char_id) !== -1;
+    const isSelected = favouriteList.findIndex(i => i === Item.char_id) !== -1;
 
 
 

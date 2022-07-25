@@ -1,7 +1,7 @@
 import { CharacterModal } from "../../interfaces/interface";
 import { CHARACHTER_LIST, FAVOURITE_LIST } from "./action-typers";
 
-export const FavouriteListAction = (data: CharacterModal[]) => ({
+export const FavouriteListAction = (data: number[]) => ({
     type: FAVOURITE_LIST,
     payload: data,
 })
